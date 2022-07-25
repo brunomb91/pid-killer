@@ -2,15 +2,23 @@ import wmi
 import os
 import signal
 
-f = wmi.WMI()
-pid_list = []
+class PID_Killer:
+    def __init__(self, processName):
+        self.__processName = processName
 
-# Buscar programas pelo nome
-for i in f.Win32_Process():
-    if i.name.count('Store') >= 1 or i.name.count('store') >= 1:
-        pid_list.append(i.ProcessId)
-        print(i.ProcessId)
+    def killer(self):
+        f = wmi.WMI()
+        pid_list = []
 
-# Matar processo
-for pid in pid_list:
-    os.kill(pid, signal.SIGABRT)
+        # Buscar programas pelo nome
+        for i in f.Win32_Process():
+            if i.name.count(self.__processName) >= 1 or i.name.count(self.__processName.lower()) >= 1:
+                pid_list.append(i.ProcessId)
+                # print(i.ProcessId)
+        for pid in pid_list:
+            os.kill(pid, signal.SIGABRT)
+
+if __name__ == '__main__':
+    # Matar processo
+    obj = PID_Killer('Store')
+    obj.killer()
