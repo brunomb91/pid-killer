@@ -24,9 +24,3 @@ class PID_Killer:
                 print ("Execução do programa interrompida")
 
         pid_list.clear()
-
-if __name__ == '__main__':
-    # Matar processo
-    while True:
-        obj = PID_Killer('Store')
-        obj.killer()
