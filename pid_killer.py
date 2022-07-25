@@ -16,9 +16,17 @@ class PID_Killer:
                 pid_list.append(i.ProcessId)
                 # print(i.ProcessId)
         for pid in pid_list:
-            os.kill(pid, signal.SIGABRT)
+            try:
+                os.kill(pid, signal.SIGABRT)
+            except OSError:
+                print ("Processo morto")
+            except KeyboardInterrupt:
+                print ("Execução do programa interrompida")
+
+        pid_list.clear()
 
 if __name__ == '__main__':
     # Matar processo
-    obj = PID_Killer('Store')
-    obj.killer()
+    while True:
+        obj = PID_Killer('Store')
+        obj.killer()
