@@ -1,0 +1,11 @@
+snes9x-x64.exe
+PCSX2.exe
+WinStore.App.exe
+Counter-Strike WaRzOnE.bat
+hlds.exe
+hl.exe
+RobloxPlayerLauncher.exe
+RobloxStudioLauncherBeta.exe
+RobloxStudioBeta.exe
+Among Us.exe
+PPSSPPWindows64.exe
